@@ -9,7 +9,14 @@ def test_version():
 
 def test_fodo():
     expected_dc = {
-        "family": {0: "WATCH", 1: "KQUAD", 2: "DRIF", 3: "KQUAD", 4: "DRIF", 5: "KQUAD"},
+        "family": {
+            0: "MARKER",
+            1: "QUADRUPOLE",
+            2: "DRIFT",
+            3: "QUADRUPOLE",
+            4: "DRIFT",
+            5: "QUADRUPOLE",
+        },
         "L": {0: 0.0, 1: 0.342, 2: 3.5805, 3: 0.668, 4: 3.5805, 5: 0.342},
         "filename": {0: '"%s-%03ld.w1"', 1: np.nan, 2: np.nan, 3: np.nan, 4: np.nan, 5: np.nan},
         "mode": {0: "coordinates", 1: np.nan, 2: np.nan, 3: np.nan, 4: np.nan, 5: np.nan},

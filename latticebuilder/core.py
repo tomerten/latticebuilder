@@ -8,6 +8,19 @@ import pandas as pd
 class LatticeBuilderLine:
     """Class for building lattice tables"""
 
+    _CONVERSION_DICT = {
+        "KQUAD": "QUADRUPOLE",
+        "KSEXT": "SEXTUPOLE",
+        "DRIF": "DRIFT",
+        "RFCA": "RFCAVITY",
+        "CSBEND": "SBEND",
+        "MONI": "MONITOR",
+        "WATCH": "MARKER",
+        "EVKICK": "VKICKER",
+        "EHKICK": "HKICKER",
+        "MARK": "MARKER",
+    }
+
     def __init__(self):
         self.lattice = []
         self.definitions = {}
@@ -28,6 +41,12 @@ class LatticeBuilderLine:
 
         # update definitions dicts
         self.definitions = {**self.definitions, **_def}
+
+        # convert to madx element types
+        for d in self.definitions.keys():
+            self.definitions[d]["family"] = self._CONVERSION_DICT.get(
+                self.definitions[d]["family"], self.definitions[d]["family"]
+            )
 
         # attempt update table
         if not self.table is None:
@@ -197,7 +216,7 @@ class LatticeBuilderLine:
 
             # add all line commands to dict
             for latname, latline in structures:
-                sublat_dict[latname] = re.sub("\s+", "", latline).split(",")
+                sublat_dict[latname] = re.sub(r"\s+", "", latline).split(",")
 
             def flatten(sublat_dict):
                 def _walker(k, lattices=sublat_dict):
@@ -299,25 +318,11 @@ class LatticeBuilderLine:
             # element name
             row["name"] = el[0]
 
-            # convert to MADX element type
-            conv_dc = {
-                "KQUAD": "QUADRUPOLE",
-                "KSEXT": "SEXTUPOLE",
-                "DRIF": "DRIFT",
-                "RFCA": "RFCAVITY",
-                "CSBEND": "SBEND",
-                "MONI": "MONITOR",
-                "WATCH": "MARKER",
-                "EVKICK": "VKICKER",
-                "EHKICK": "HKICKER",
-                "MARK": "MARKER",
-            }
-
             # convert or keep if not in conversion list
-            row["family"] = conv_dc.get(el[1], el[1])
+            row["family"] = self._CONVERSION_DICT.get(el[1], el[1])
 
             # we skip the non relevant
-            if not row["family"] in conv_dc.values():
+            if not row["family"] in self._CONVERSION_DICT.values():
                 continue
 
             if row["family"] in ["MARKER", "MONITOR"]:

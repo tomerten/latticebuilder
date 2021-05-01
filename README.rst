@@ -37,13 +37,13 @@ latticebuilder
     >>> lblfodo.add_element(["W1","QF","D","QD","D","QF"])
     >>> lblfodo.table
 
-     	family 	L       filename        mode 	    K1 	        N_KICKS pos
-    0 	WATCH 	0.0000 	"%s-%03ld.w1" 	coordinates NaN 	NaN 	0.00000
-    1 	KQUAD 	0.3420 	NaN 	        NaN 	    0.4900 	16.0 	0.17100
-    2 	DRIF 	3.5805 	NaN 	        NaN 	    NaN 	NaN 	2.13225
-    3 	KQUAD 	0.6680 	NaN 	        NaN 	    -0.4999     16.0 	4.25650
-    4 	DRIF 	3.5805 	NaN 	        NaN 	    NaN 	NaN 	6.38075
-    5 	KQUAD 	0.3420 	NaN 	        NaN 	    0.4900 	16.0 	8.34200
+     	family 	    L       filename        mode 	    K1 	        N_KICKS pos
+    0 	MARKER 	    0.0000 	"%s-%03ld.w1" 	coordinates NaN 	NaN 	0.00000
+    1 	QUADRUPOLE  0.3420 	NaN 	        NaN 	    0.4900 	16.0 	0.17100
+    2 	DRIFT 	    3.5805 	NaN 	        NaN 	    NaN 	NaN 	2.13225
+    3 	QUADRUPOLE  0.6680 	NaN 	        NaN 	    -0.4999     16.0 	4.25650
+    4 	DRIFT 	    3.5805 	NaN 	        NaN 	    NaN 	NaN 	6.38075
+    5 	QUADRUPOLE  0.3420 	NaN 	        NaN 	    0.4900 	16.0 	8.34200
 
 
 latticeadaptors
