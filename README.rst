@@ -18,7 +18,8 @@ simulation tools MADX, ELEGANT and TRACY.
 
 Example
 =======
-We use a fodo cell as the basic example.
+We use a fodo cell as the basic example. The example code can also 
+be found in the tests.
 
 latticebuilder
 --------------
