@@ -28,7 +28,8 @@ class LatticeBuilderLine:
         self.definitions = {**self.definitions, **_def}
 
         # attempt update table
-        self._update_table()
+        if not self.table is None:
+            self._update_table()
 
     def add_element(self, element):
         """Add elements to the end of the lattice"""
