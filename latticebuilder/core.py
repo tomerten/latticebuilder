@@ -39,6 +39,10 @@ class LatticeBuilderLine:
         # length can not be zero - necessary for pos calc
         assert list(_def.values())[0].get("L", None) is not None
 
+        # update names
+        for k, v in _def.items():
+            _def[k]["name"] = v.get("name", k)
+
         # update definitions dicts
         self.definitions = {**self.definitions, **_def}
 
