@@ -2,13 +2,15 @@ import queue
 import re
 from copy import deepcopy
 
+import pandas as pd
+
 
 class LatticeBuilderLine:
     """Class for building lattice tables"""
 
     def __init__(self):
         self.lattice = []
-        self.definitions = []
+        self.definitions = {}
         self.table = None
 
         # roll back queue

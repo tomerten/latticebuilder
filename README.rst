@@ -43,3 +43,9 @@ latticebuilder
     3 	KQUAD 	0.6680 	NaN 	        NaN 	    -0.4999     16.0 	4.25650
     4 	DRIF 	3.5805 	NaN 	        NaN 	    NaN 	NaN 	6.38075
     5 	KQUAD 	0.3420 	NaN 	        NaN 	    0.4900 	16.0 	8.34200
+
+
+latticeadaptors
+---------------
+For actually converting the table into a usuable format we need to use the latticeadaptors
+package.
