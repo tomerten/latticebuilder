@@ -1,5 +1,5 @@
-from latticebuilder import __version__
+from latticebuilder import LatticeBuilderLine, __version__
 
 
 def test_version():
-    assert __version__ == '0.1.0'
+    assert __version__ == "0.1.0"
